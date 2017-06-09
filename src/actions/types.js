@@ -1,0 +1,1 @@
+export const SEARCH_API_SUCCESS = 'search_api_success';
