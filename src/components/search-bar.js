@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
-export default class SearchBar extends Component {
+import searchApi from '../actions/search_api';
+
+class SearchBar extends Component {
 
   constructor(props) {
     super(props);
@@ -18,6 +21,7 @@ export default class SearchBar extends Component {
 
   onHandleSubmit(e) {
     e.preventDefault();
+    this.props.searchApi({q: this.state.searchTerm});
     this.setState({searchTerm: ''});
   }
 
@@ -37,7 +41,7 @@ export default class SearchBar extends Component {
 
             <span className="input-group-btn">
               <button
-                type="button"
+                type="submit"
                 className="btn btn-default">
                   <span className="glyphicon glyphicon-search" />
               </button>
@@ -49,3 +53,5 @@ export default class SearchBar extends Component {
     );
   }
 };
+
+export default connect(null, {searchApi})(SearchBar);
