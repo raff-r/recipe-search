@@ -8,7 +8,12 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {searchTerm: ''};
+    this.state = {
+        q: '',
+        diet: '',
+        caloriesType: '',
+        calories: ''
+    };
 
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
@@ -16,7 +21,7 @@ class SearchBar extends Component {
   }
 
   onHandleChange(e) {
-    this.setState({searchTerm: e.target.value});
+    this.setState({[e.target.name]: e.target.value});
   }
 
   onHandleSubmit(e) {
@@ -34,10 +39,10 @@ class SearchBar extends Component {
                 <div className="col-xs-12 col-md-10">
                     <div className="row">
                         <div className="col-xs-12 col-md-4">
-                            <label for="searchTerm">Search term</label>
+                            <label htmlFor="searchTerm">Search term</label>
                             <input
                                 type="text"
-                                name="searchTerm"
+                                name="q"
                                 id="searchTerm"
                                 className="form-control"
                                 placeholder="Search&hellip;"
@@ -46,7 +51,7 @@ class SearchBar extends Component {
                             />
                         </div>
                         <div className="col-xs-12 col-md-4">
-                            <label for="diet">Diet</label>
+                            <label htmlFor="diet">Diet</label>
                             <select
                                 className="form-control"
                                 name="diet"
@@ -63,17 +68,31 @@ class SearchBar extends Component {
                             </select>
                         </div>
                         <div className="col-xs-12 col-md-4">
-                            <label for="calaories">Number of calories</label>
+                            <label htmlFor="calories">Number of calories</label>
                             <div className="input-group">
                                 <span className="input-group-addon">
                                     <label>
-                                        <input type="radio" name="caloriesType" id="caloriesType-gte" value="gte" checked />
+                                        <input
+                                            type="radio"
+                                            name="caloriesType"
+                                            id="caloriesType-gte"
+                                            value="gte"
+                                            checked={this.state.caloriesType === 'gte'}
+                                            onChange={this.onHandleChange}
+                                        />
                                         &nbsp;&gt;
                                     </label>
                                 </span>
                                 <span className="input-group-addon">
                                     <label>
-                                        <input type="radio" name="caloriesType" id="caloriesType-lte" value="lte" checked />
+                                        <input
+                                            type="radio"
+                                            name="caloriesType"
+                                            id="caloriesType-lte"
+                                            value="lte"
+                                            checked={this.state.caloriesType === 'lte'}
+                                            onChange={this.onHandleChange}
+                                        />
                                         &nbsp;&lt;
                                     </label>
                                 </span>
