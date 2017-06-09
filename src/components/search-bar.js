@@ -29,25 +29,77 @@ class SearchBar extends Component {
     return (
       <form onSubmit={this.onHandleSubmit}>
         <div className="form-group">
-          <div className="input-group">
 
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search&hellip;"
-              onChange={this.onHandleChange}
-              value={this.state.searchTerm}
-            />
+            <div className="row">
+                <div className="col-xs-12 col-md-10">
+                    <div className="row">
+                        <div className="col-xs-12 col-md-4">
+                            <label for="searchTerm">Search term</label>
+                            <input
+                                type="text"
+                                name="searchTerm"
+                                id="searchTerm"
+                                className="form-control"
+                                placeholder="Search&hellip;"
+                                onChange={this.onHandleChange}
+                                value={this.state.searchTerm}
+                            />
+                        </div>
+                        <div className="col-xs-12 col-md-4">
+                            <label for="diet">Diet</label>
+                            <select
+                                className="form-control"
+                                name="diet"
+                                id="diet"
+                                onChange={this.onHandleChange}
+                            >
+                                <option value="">Select option</option>
+                                <option value="balanced">Balanced</option>
+                                <option value="high-protein">High protein</option>
+                                <option value="high-fiber">High fiber</option>
+                                <option value="low-fat">Loe fat</option>
+                                <option value="low-carb">Low carb</option>
+                                <option value="low-sodium">Low sodium</option>
+                            </select>
+                        </div>
+                        <div className="col-xs-12 col-md-4">
+                            <label for="calaories">Number of calories</label>
+                            <div className="input-group">
+                                <span className="input-group-addon">
+                                    <label>
+                                        <input type="radio" name="caloriesType" id="caloriesType-gte" value="gte" checked />
+                                        &nbsp;&gt;
+                                    </label>
+                                </span>
+                                <span className="input-group-addon">
+                                    <label>
+                                        <input type="radio" name="caloriesType" id="caloriesType-lte" value="lte" checked />
+                                        &nbsp;&lt;
+                                    </label>
+                                </span>
+                                <input
+                                    type="number"
+                                    name="calories"
+                                    id="calories"
+                                    className="form-control"
+                                    placeholder="Calories"
+                                    onChange={this.onHandleChange}
+                                    value={this.state.searchTerm}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-xs-12 col-md-2">
+                    <button
+                        type="submit"
+                        className="btn btn-default btn-block">
+                        <span className="glyphicon glyphicon-search" />
+                        &nbsp;Search
+                    </button>
+                </div>
+            </div>
 
-            <span className="input-group-btn">
-              <button
-                type="submit"
-                className="btn btn-default">
-                  <span className="glyphicon glyphicon-search" />
-              </button>
-            </span>
-            
-          </div>
         </div>
       </form>
     );
