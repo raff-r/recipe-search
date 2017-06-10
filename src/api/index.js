@@ -24,7 +24,7 @@ const recipeAPI = (params) => {
     }
 
     return axios(search_endpoint).then(response => {
-        return response.json();
+        return response.data;
     }).catch(error => {
         return error;
     });
