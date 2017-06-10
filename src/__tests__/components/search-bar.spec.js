@@ -1,17 +1,21 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { shallow } from 'enzyme';
+import configureStore from 'redux-mock-store';
+import { mount } from 'enzyme';
 import toJson from "enzyme-to-json";
 
 import SearchBar from '../../components/search-bar';
 
 describe('SearchBar Component', () => {
 
-  let component;
+    const mockStore = configureStore();
+    const initialState = {};
+    let component, store;
 
   beforeEach(() => {
-    component = shallow( <SearchBar /> );
+    store = mockStore(initialState);
+    component = mount( <SearchBar store={store}/> );
   });
 
   it('should match the snapshot', () => {
