@@ -56,6 +56,7 @@ exports[`SearchBar Component should match the snapshot 1`] = `
                   onChange={[Function]}
                   placeholder="Search…"
                   type="text"
+                  value=""
                 />
               </div>
               <div
@@ -71,6 +72,7 @@ exports[`SearchBar Component should match the snapshot 1`] = `
                   id="diet"
                   name="diet"
                   onChange={[Function]}
+                  value=""
                 >
                   <option
                     value=""
@@ -157,6 +159,7 @@ exports[`SearchBar Component should match the snapshot 1`] = `
                     onChange={[Function]}
                     placeholder="Calories"
                     type="number"
+                    value=""
                   />
                 </div>
               </div>

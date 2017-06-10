@@ -8,12 +8,14 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.defaultFormValues = {
         q: '',
         diet: '',
         caloriesType: '',
         calories: ''
-    };
+    }
+
+    this.state = this.defaultFormValues;
 
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
@@ -26,8 +28,8 @@ class SearchBar extends Component {
 
   onHandleSubmit(e) {
     e.preventDefault();
-    this.props.searchApi({q: this.state.searchTerm});
-    this.setState({searchTerm: ''});
+    this.props.searchApi(this.state);
+    this.setState(this.defaultFormValues);
   }
 
   render() {
@@ -47,7 +49,7 @@ class SearchBar extends Component {
                                 className="form-control"
                                 placeholder="Search&hellip;"
                                 onChange={this.onHandleChange}
-                                value={this.state.searchTerm}
+                                value={this.state.q}
                             />
                         </div>
                         <div className="col-xs-12 col-md-4">
@@ -57,6 +59,7 @@ class SearchBar extends Component {
                                 name="diet"
                                 id="diet"
                                 onChange={this.onHandleChange}
+                                value={this.state.diet}
                             >
                                 <option value="">Select option</option>
                                 <option value="balanced">Balanced</option>
@@ -103,7 +106,7 @@ class SearchBar extends Component {
                                     className="form-control"
                                     placeholder="Calories"
                                     onChange={this.onHandleChange}
-                                    value={this.state.searchTerm}
+                                    value={this.state.calories}
                                 />
                             </div>
                         </div>
