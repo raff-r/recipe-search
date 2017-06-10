@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResults Component should match the snapshot 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-xs-12"
+  >
+    <h3>
+      Herbes de Provence Rotisserie Chickens
+    </h3>
+  </div>
+  <div
+    className="col-xs-6 col-md-4"
+  >
+    <img
+      alt="Herbes de Provence Rotisserie Chickens"
+      className="img-responsive"
+      src="https://www.edamam.com/web-img/18d/18dcf05995cb40e8ce4c077972341d7a.jpg"
+    />
+  </div>
+  <div
+    className="col-xs-6 col-md-3"
+  >
+    <h4>
+      Diet labels
+    </h4>
+    <ul
+      className="list-inline"
+    >
+      <li>
+        <span
+          className="label label-info"
+        >
+          Low-Carb
+        </span>
+      </li>
+    </ul>
+    <h4>
+      Health labels
+    </h4>
+    <ul
+      className="list-inline"
+    >
+      <li>
+        <span
+          className="label label-info"
+        >
+          Sugar-Conscious
+        </span>
+      </li>
+      <li>
+        <span
+          className="label label-info"
+        >
+          Peanut-Free
+        </span>
+      </li>
+      <li>
+        <span
+          className="label label-info"
+        >
+          Tree-Nut-Free
+        </span>
+      </li>
+      <li>
+        <span
+          className="label label-info"
+        >
+          Alcohol-Free
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="col-xs-12 col-md-5"
+  >
+    <h4>
+      Ingredients
+    </h4>
+    <ul>
+      <li>
+        2 tablespoons (1/4 stick) butter, room temperature
+         - 
+        28.40
+        g
+      </li>
+      <li>
+        2 tablespoons dried herbes de provence*
+         - 
+        5.40
+        g
+      </li>
+      <li>
+        1 tablespoon coarse kosher salt
+         - 
+        14.77
+        g
+      </li>
+      <li>
+        2 (3 1/2-pound) chickens
+         - 
+        3175.15
+        g
+      </li>
+    </ul>
+  </div>
+</div>
+`;

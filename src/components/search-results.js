@@ -5,15 +5,19 @@ import SearchResult from './search-result';
 
 const SearchResults = (props) => {
 
+    if(!props.results) {
+        return null;
+    }
+
     const results = props.results.map( (result, index) => (<SearchResult key={index} result={result.recipe} />));
 
-  return (
-      <div>
-          <h1>Search Results</h1>
-          <p>{props.results.length} found for the search [SEARCH PARAMS]</p>
-          {results}
-      </div>
-  )
+    return (
+        <div>
+            <h1>Search Results</h1>
+            <p>{props.results.length} found for the search [SEARCH PARAMS]</p>
+            {results}
+        </div>
+    )
 };
 
 const mapStateToProps = (state) => {
