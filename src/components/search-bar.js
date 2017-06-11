@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
-import searchApi from '../actions/search_api';
+import searchApi from '../actions/search-api';
 
 class SearchBar extends Component {
 
