@@ -49,7 +49,7 @@ class SearchBar extends Component {
 
     if((e.target.name === 'searchTerm') && (e.target.value === '')) {
         this.setState({error: true})
-    } else {
+    } else if((e.target.name === 'searchTerm') && (e.target.value !== '')) {
         this.setState({error: false})
     }
   }
