@@ -56,6 +56,7 @@ exports[`SearchBar Component should match the snapshot 1`] = `
                   name="searchTerm"
                   onChange={[Function]}
                   placeholder="Search…"
+                  required={true}
                   type="text"
                 />
               </div>
@@ -125,7 +126,9 @@ exports[`SearchBar Component should match the snapshot 1`] = `
                   <span
                     className="input-group-addon"
                   >
-                    <label>
+                    <label
+                      className="radio-label"
+                    >
                       <input
                         checked={false}
                         id="caloriesType-gte"
@@ -140,7 +143,9 @@ exports[`SearchBar Component should match the snapshot 1`] = `
                   <span
                     className="input-group-addon"
                   >
-                    <label>
+                    <label
+                      className="radio-label"
+                    >
                       <input
                         checked={false}
                         id="caloriesType-lte"

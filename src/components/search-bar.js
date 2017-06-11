@@ -60,6 +60,7 @@ class SearchBar extends Component {
                                 placeholder="Search&hellip;"
                                 onChange={this.onHandleChange}
                                 value={this.state.q}
+                                required
                             />
                         </div>
                         <div className="col-xs-12 col-md-4">
@@ -84,7 +85,7 @@ class SearchBar extends Component {
                             <label htmlFor="calories">Number of calories</label>
                             <div className="input-group">
                                 <span className="input-group-addon">
-                                    <label>
+                                    <label className="radio-label">
                                         <input
                                             type="radio"
                                             name="caloriesType"
@@ -97,7 +98,7 @@ class SearchBar extends Component {
                                     </label>
                                 </span>
                                 <span className="input-group-addon">
-                                    <label>
+                                    <label className="radio-label">
                                         <input
                                             type="radio"
                                             name="caloriesType"
