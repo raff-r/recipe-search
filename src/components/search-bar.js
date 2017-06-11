@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import debounce from 'lodash/debounce';
 
 import searchApi from '../actions/search-api';
 
@@ -21,22 +22,41 @@ class SearchBar extends Component {
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
 
+    this.searchApi = debounce(this.props.searchApi,1000);
+
+  }
+
+  componentDidUpdate() {
+      const params = this.getParams();
+      if(params.q !== '') {
+          this.searchApi(params);
+      }
+  }
+
+  getParams() {
+      return {
+          q: this.state.searchTerm,
+          diet: this.state.diet,
+          calories: (this.state.caloriesType && this.state.calories) ? `${this.state.caloriesType} ${this.state.calories}` : null
+      }
   }
 
   onHandleChange(e) {
-    this.setState({[e.target.name]: e.target.value});
+    this.setState({
+        [e.target.name]: e.target.value,
+        submitted: true
+    });
+
+    if((e.target.name === 'searchTerm') && (e.target.value === '')) {
+        this.setState({error: true})
+    } else {
+        this.setState({error: false})
+    }
   }
 
   onHandleSubmit(e) {
     e.preventDefault();
 
-    const params = {
-        q: this.state.searchTerm,
-        diet: this.state.diet,
-        calories: (this.state.caloriesType && this.state.calories) ? `${this.state.caloriesType} ${this.state.calories}` : null
-    };
-
-    this.props.searchApi(params);
     this.setState({submitted: true});
   };
 
@@ -51,17 +71,20 @@ class SearchBar extends Component {
                 <div className="col-xs-12 col-md-10">
                     <div className="row">
                         <div className="col-xs-12 col-md-4">
-                            <label htmlFor="searchTerm">Search term</label>
-                            <input
-                                type="text"
-                                name="searchTerm"
-                                id="searchTerm"
-                                className="form-control"
-                                placeholder="Search&hellip;"
-                                onChange={this.onHandleChange}
-                                value={this.state.q}
-                                required
-                            />
+                            <div className={`form-group has-feedback ${(this.state.error) ? 'has-error' : ''}`}>
+                                <label htmlFor="searchTerm">Search term</label>
+                                <input
+                                    type="text"
+                                    name="searchTerm"
+                                    id="searchTerm"
+                                    className="form-control"
+                                    placeholder="Search&hellip;"
+                                    onChange={this.onHandleChange}
+                                    value={this.state.q}
+                                    required
+                                />
+                                {(this.state.error) ? (<span className="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>) : null}
+                            </div>
                         </div>
                         <div className="col-xs-12 col-md-4">
                             <label htmlFor="diet">Diet</label>
