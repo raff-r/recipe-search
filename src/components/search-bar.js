@@ -3,19 +3,20 @@ import {connect} from 'react-redux';
 
 import searchApi from '../actions/search-api';
 
+import '../styles/search-bar.css';
+
 class SearchBar extends Component {
 
   constructor(props) {
     super(props);
 
-    this.defaultFormValues = {
-        q: '',
+    this.state = {
+        searchTerm: '',
         diet: '',
         caloriesType: '',
-        calories: ''
-    }
-
-    this.state = this.defaultFormValues;
+        calories: '',
+        submitted: false
+    };
 
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
@@ -28,13 +29,22 @@ class SearchBar extends Component {
 
   onHandleSubmit(e) {
     e.preventDefault();
-    this.props.searchApi(this.state);
-    this.setState(this.defaultFormValues);
-  }
+
+    const params = {
+        q: this.state.searchTerm,
+        diet: this.state.diet,
+        calories: (this.state.caloriesType && this.state.calories) ? `${this.state.caloriesType} ${this.state.calories}` : null
+    };
+
+    this.props.searchApi(params);
+    this.setState({submitted: true});
+  };
 
   render() {
     return (
-      <form onSubmit={this.onHandleSubmit}>
+      <form
+          className={`search-form ${(this.state.submitted) ? 'has-results' : ''}`}
+          onSubmit={this.onHandleSubmit}>
         <div className="form-group">
 
             <div className="row">
@@ -44,7 +54,7 @@ class SearchBar extends Component {
                             <label htmlFor="searchTerm">Search term</label>
                             <input
                                 type="text"
-                                name="q"
+                                name="searchTerm"
                                 id="searchTerm"
                                 className="form-control"
                                 placeholder="Search&hellip;"
@@ -115,7 +125,7 @@ class SearchBar extends Component {
                 <div className="col-xs-12 col-md-2">
                     <button
                         type="submit"
-                        className="btn btn-default btn-block">
+                        className="btn">
                         <span className="glyphicon glyphicon-search" />
                         &nbsp;Search
                     </button>

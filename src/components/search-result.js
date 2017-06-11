@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../styles/search-result.css';
+
 const SearchResult = (props) => {
 
     const {result} = props;
@@ -25,6 +27,8 @@ const SearchResult = (props) => {
                 <ul className="list-inline">
                     {healthLabels}
                 </ul>
+                <h4>Calories</h4>
+                <p>{result.calories.toFixed(2)}</p>
             </div>
             <div className="col-xs-12 col-md-5">
                 <h4>Ingredients</h4>

@@ -5,7 +5,7 @@ import SearchResult from './search-result';
 
 const SearchResults = (props) => {
 
-    if(!props.results) {
+    if(!props.results.length) {
         return null;
     }
 
@@ -14,7 +14,6 @@ const SearchResults = (props) => {
     return (
         <div>
             <h1>Search Results</h1>
-            <p>{props.results.length} found for the search [SEARCH PARAMS]</p>
             {results}
         </div>
     )
