@@ -27,6 +27,7 @@ exports[`SearchBar Component should match the snapshot 1`] = `
     }
   >
     <form
+      className="search-form "
       onSubmit={[Function]}
     >
       <div
@@ -52,11 +53,10 @@ exports[`SearchBar Component should match the snapshot 1`] = `
                 <input
                   className="form-control"
                   id="searchTerm"
-                  name="q"
+                  name="searchTerm"
                   onChange={[Function]}
                   placeholder="Search…"
                   type="text"
-                  value=""
                 />
               </div>
               <div
@@ -169,7 +169,7 @@ exports[`SearchBar Component should match the snapshot 1`] = `
             className="col-xs-12 col-md-2"
           >
             <button
-              className="btn btn-default btn-block"
+              className="btn"
               type="submit"
             >
               <span

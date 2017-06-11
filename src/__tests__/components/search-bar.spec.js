@@ -21,7 +21,7 @@ describe('SearchBar Component', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
 
-  describe('entering some text', () => {
+  describe('entering text into form and submit', () => {
 
       let input;
 
@@ -31,13 +31,13 @@ describe('SearchBar Component', () => {
           input.simulate('change');
       });
 
-      it('shows that text in the textarea', () => {
-          expect(input.props().value).toEqual('My new value');
+      it('shows that text in the search term input', () => {
+          expect(input.node.value).toEqual('My new value');
       });
 
-      it('when submitted, clears the input', () => {
+      it('when submitted, sets has-result class', () => {
           component.simulate('submit');
-          expect(input.props().value).toEqual('');
+          expect(component.html()).toContain('has-results');
       });
   });
 
