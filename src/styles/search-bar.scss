@@ -1,0 +1,56 @@
+@import "./variables";
+
+.search-form {
+  position: absolute;
+  left: 0;
+  top: 50%;
+
+  width: 100%;
+  padding: 10px 15px;
+
+  transform: translate(0, -50%);
+  transition: all 0.5s ease-out;
+
+  &.has-results {
+    position: relative;
+    top: 0;
+
+    padding: 10px 0 0;
+
+    transform: translate(0, 0);
+  }
+}
+
+.btn {
+
+  display: block;
+  width: 100%;
+  height: $input-height;
+  margin: 25px auto $input-margin-bottom;
+  padding: 0px;
+
+  text-align: center;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 15px;
+  color: $white;
+
+  border-radius: 3px;
+  background: $green;
+
+  transition: background 0.3s ease-out;
+
+  &:hover,
+  &:focus {
+
+    color: $white;
+
+    background: $light-green;
+  }
+
+}
+
+.form-control {
+  margin-bottom: $input-margin-bottom;
+}

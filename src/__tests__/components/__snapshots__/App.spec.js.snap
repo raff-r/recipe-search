@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResults Component should match the snapshot 1`] = `
+<div
+  className="container-fluid full-height"
+>
+  <div
+    className="row full-height"
+  >
+    <div
+      className="col-xs-12 full-height"
+    >
+      <Connect(SearchBar) />
+      <Connect(SearchResults) />
+    </div>
+  </div>
+</div>
+`;
