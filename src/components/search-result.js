@@ -28,7 +28,7 @@ const SearchResult = (props) => {
                     {healthLabels}
                 </ul>
                 <h4>Calories</h4>
-                <p>{result.calories.toFixed(2)}</p>
+                <p>{(result.calories) ? result.calories.toFixed(2) : 'N/A'}</p>
             </div>
             <div className="col-xs-12 col-md-5">
                 <h4>Ingredients</h4>

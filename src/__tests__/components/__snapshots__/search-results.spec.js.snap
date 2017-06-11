@@ -87,10 +87,6 @@ exports[`SearchResults Component should match the snapshot 1`] = `
       <h1>
         Search Results
       </h1>
-      <p>
-        1
-         found for the search [SEARCH PARAMS]
-      </p>
       <SearchResult
         result={
           Object {
@@ -197,6 +193,12 @@ exports[`SearchResults Component should match the snapshot 1`] = `
                 </span>
               </li>
             </ul>
+            <h4>
+              Calories
+            </h4>
+            <p>
+              N/A
+            </p>
           </div>
           <div
             className="col-xs-12 col-md-5"
